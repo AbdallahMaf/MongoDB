@@ -26,6 +26,7 @@ const cours1 = async() => {
        console.log(e.message); 
     }
 }
+//cours1();
 const cours2 = async() => {
     try {
         const cours = await Cours.create({
@@ -40,7 +41,7 @@ const cours2 = async() => {
        console.log(e.message); 
     }
 }
-
+//cours2();
 const cours3 = async() => {
     try {
         const cours = await Cours.create({
@@ -55,7 +56,7 @@ const cours3 = async() => {
        console.log(e.message); 
     }
 }
-
+//cours4();
 const cours4 = async() => {
     try {
         const cours = await Cours.create({
@@ -70,34 +71,19 @@ const cours4 = async() => {
        console.log(e.message); 
     }
 }
+//cours4();
 
 const participant1 = async() => {
-    try {
-        const participant = await Participants.create({
-            firstName: 'Omar',
-            lastName: 'BA',
-            birthDate: '1995-12-15', 
-            adress: 'OUAKAM',
-            label: 'Informatique Decisionnelle',
-            volume: '40',
-            startDate: '2021-12-05',
-
-
-        });
-        console.log(participant)
-    } catch (e) {
-        console.log(e.message);
-        
-    }
-}
-
-const participant2 = async() => {
     try {
         const participant = await Participants.create({
             firstName: 'Mariama',
             lastName: 'SOW',
             birthDate: '1998-10-07', 
             adress: 'POINT E',
+            cours:[{
+                label: 'HTML',
+                volume: 30,
+                startDate: '2021-02-12'}]
         });
         console.log(participant)
     } catch (e) {
@@ -105,6 +91,68 @@ const participant2 = async() => {
         
     }
 }
+//participant1();
+
+const participant2 = async() => {
+    try {
+        const participant = await Participants.create({
+            firstName: 'Mohamed Ahmad',
+            lastName: 'DIOP',
+            birthDate: '1998-01-06', 
+            adress: 'FANN-HOCK',
+            cours:[{
+                label: 'Informatique Decisionnelle',
+                volume: 60,
+                startDate: '2021-02-12'}]
+        });
+        console.log(participant)
+    } catch (e) {
+        console.log(e.message);
+        
+    }
+}
+//participant2();
+
+const participant3 = async() => {
+    try {
+        const participant = await Participants.create({
+            firstName: 'Fatoumata Bintou',
+            lastName: 'Ndiaye',
+            birthDate: '1995-03-27', 
+            adress: 'MARISTE',
+            cours:[{
+                label: 'Mongoose',
+                volume: 40,
+                startDate: '2021-02-12'}]
+        });
+        console.log(participant)
+    } catch (e) {
+        console.log(e.message);
+        
+    }
+}
+//participant3();
+
+const participant4 = async() => {
+    try {
+        const participant = await Participants.create({
+            firstName: 'Mouhamadou Momar',
+            lastName: 'FALL',
+            birthDate: '1997-01-15', 
+            adress: 'CITE KEUR GORGUI',
+            cours:[{
+                label: 'JavaScript',
+                volume: 40,
+                startDate: '2021-02-12'}]
+        });
+        console.log(participant)
+    } catch (e) {
+        console.log(e.message);
+        
+    }
+}
+//participant4();
+
 
 const allcours = async() => {
     try {
@@ -116,6 +164,7 @@ const allcours = async() => {
         
     }
 }
+//allcours();
 
 const allparticipants = async() => {
     try {
@@ -127,14 +176,12 @@ const allparticipants = async() => {
         
     }
 }
+//allparticipants();
 
-
-
-
-const cours = async() =>{
+const coursHTML = async() =>{
     try{
         const cours =  await Cours.findById(
-            {_id:'61b215212522742d733a06b4'
+            {_id:'61bb60a489916fa86bf2aeb6'
         });
     console.log(cours);
     }
@@ -142,11 +189,12 @@ const cours = async() =>{
         console.log(e.message);
     }
 }
+coursHTML();
 
-const part1 = async() =>{
+const partHTML = async() =>{
     try{
         const participant =  await Participants.findById(
-            {_id:'61b21c206f7026acabc06b44'
+            {_id:'61bb71bcb8b6babacd16aa5f'
 
         });
     console.log(participant);
@@ -155,30 +203,6 @@ const part1 = async() =>{
         console.log(e.message);
     }
 }
-
-const part2 = async() =>{
-    try{
-        const participant =  await Participants.findById(
-            {_id:'61b9ea05f32075db2beda0b3'
-
-        });
-    console.log(participant);
-    }
-    catch (e){
-        console.log(e.message);
-    }
-}
+partHTML();
 
 connected();
-//part1();
-part2();
-//cours();
-//participant1();
-//participant2();
-//cours1();
-//cours2();
-//cours3();
-//cours4();
-
-//allcours();
-//allparticipants();
