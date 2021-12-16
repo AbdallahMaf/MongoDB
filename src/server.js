@@ -1,19 +1,16 @@
-const mongoose = require('mongoose');
+const express = require('express');
 const ParticipantsServ = require('./services/participantsServ');
 const CoursServ = require('./services/coursServ');
+const DBServ = require('./services/DB');
+
 
 app = express();
 
+DBServ.DBconnect();
 
-const DBconnected = async () => {
-    try {
-        await mongoose.connect('mongodb://localhost/mongooose_db');
-        console.log('connected to the DATABASE');
-        
-    } catch (e) {
-        console.error(e.message);
-        
-    }
-}
+app.get('/participant', ParticipantsServ.getAllParticipants)
 
-DBconnected();
+app.get('/cours', CoursServ.getAllCours)
+
+app.listen(3000, () => console.log('Server Listening on port 3000'));
+
